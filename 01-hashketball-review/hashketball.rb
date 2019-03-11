@@ -1,3 +1,8 @@
+require 'pry'
+# puts "at the top"
+name = "alex"
+other_name = "vera"
+
 def game_hash
   {
     home: {
@@ -115,4 +120,33 @@ def game_hash
       ]
     }
   }
+end
+
+instructors = [{name: "ali", mood: "happy"}, {name: "vera", mood: "excited!"}, {name: "chris", mood: "very happy"}]
+# => ["ali", "vera", "chris"]
+def get_instructor_names(instructors)
+end
+
+def square_all(arr)
+  arr.each do |n|
+    puts n * n
+  end
+end
+
+binding.pry
+
+square_all([2,4,6])
+
+
+def get_all_players
+  binding.pry
+  []
+end
+
+def num_points_scored(player_name)
+  # look down the line (look through the list of all players)
+  player_list = get_all_players # this method would return an array (a list) of all the players
+  # find the one where the name matches the given name
+
+  # return that players points
 end

@@ -7,6 +7,7 @@ describe 'hashketball' do
     let(:team_level_keys) { [:team_name, :colors, :players] }
 
     it 'returns a hash' do
+      # puts "here" * 100
       expect(game_hash).to be_a(Hash)
     end
 
