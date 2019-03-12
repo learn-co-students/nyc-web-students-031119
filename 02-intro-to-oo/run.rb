@@ -27,6 +27,10 @@ poodr = {
 
 hp = Book.new("hp and the sorceres stone", "jk rowling")
 poodr = Book.new('practical object oriented design in ruby', 'sandi metz')
+# poodr.cover_page
+
+poodr.title
+hp.title
 
 binding.pry
 # 'bye'
