@@ -6,12 +6,24 @@ aka: Object Oriented Programming (OOP)
 
 ## Lecture Notes
 
-# What is an object
-*
+Everything is an Object
 
-*
+everything is a thing, has values
+
+attributes,
+behaviors
+
+instance of a class
+
+# What is an object
+* Encapsulates state (data that makes something up)
+
+* Encapsulates behavior
+
+State + Behavior together in one object
 
 Does the following meet those properties?
+kind of...
 
 player = {
   player_name: "Alan Anderson",

@@ -3,9 +3,9 @@
 Define a method `Book.all` that works like this:
 
 ```ruby
-Book.new('the master and margarita', ['mikhail bulgakov'])
-Book.new('the name of the rose', ['umberto eco'])
-Book.new('the essential calvin and hobbes', ['bill watterson', 'charles schulz'])
+Book.new('the master and margarita', 'mikhail bulgakov')
+Book.new('the name of the rose', 'umberto eco')
+Book.new('the essential calvin and hobbes', 'bill watterson')
 ```
 
 after I run the code above, and call no other methods
