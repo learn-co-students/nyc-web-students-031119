@@ -9,23 +9,48 @@ Intro to OO Relations
 
 #### Where we've been
 
+class Batch
+
+class Student
+
+batch = Batch.new('031119')
+
+batch.students => ["sam", "elaina", "xavier", ...]
+
+sam = Student.new('sam')
+
+sam.batch => '031119'
+
+
 
 #### Where we'll be from here on out
 
+batch = Batch.new('031119')
 
+batch.students => [<Student 0x0hjksaf @name='sam'>, <Student 0x0hjksaf @name='elaina'>, ...]
+
+sam.batch => <Batch 0x00 @cohort='031119'>
+
+Student.new('xavier', batch)
 
 
 
 #### Define terminology
   * Model
+  Classes that represent / hold the data of our application
+
+  class Batch
+  class Student
+  class GithubRepoSyncer
 
   * Domain / Domain Modeling
+  Models parts that make something up
+  Subject Matter
 
 
-  * Schema
 
   * Deliverables
-  * User Stories
+  <!-- * User Stories -->
 
 
 ### Deliverables
