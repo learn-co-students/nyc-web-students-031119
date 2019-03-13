@@ -12,11 +12,15 @@ class User
     # Look through all of the tweets
 
     # "select" the ones that belong to this user instance
-    
+
+
+    Tweet.all.select do |tweet|
+      # tweet.username == self.username
+      tweet.user == self
+    end
   end
 
   def post_tweet(message)
     Tweet.new(message, self)
-    # @tweets << tweet
   end
 end
