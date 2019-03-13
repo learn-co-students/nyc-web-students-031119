@@ -54,6 +54,7 @@ Student.new('xavier', batch)
 
 
 ### Deliverables
+* `Tweet#username` that returns the username of the tweet's user
 
 * Create a User class. The class should have these methods:
   * `#initialize` which takes a username and has a reader method for the username
@@ -64,4 +65,3 @@ Student.new('xavier', batch)
   * `Tweet#message` that returns a string
   * `Tweet#user` that returns an instance of the user class
   * `Tweet.all` that returns all the Tweets created.
-  * `Tweet#username` that returns the username of the tweet's user

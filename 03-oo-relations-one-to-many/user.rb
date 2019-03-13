@@ -3,15 +3,20 @@ class User
 
   def initialize(username)
     @username = username
-    @tweets = []
+    # @tweets = [] <- this introduced multiple sources of truth
   end
 
   def tweets
-    @tweets
+    # Go ask the Tweet model a question ('querying the model')
+
+    # Look through all of the tweets
+
+    # "select" the ones that belong to this user instance
+    
   end
 
   def post_tweet(message)
-    tweet = Tweet.new(message, self)
-    @tweets << tweet
+    Tweet.new(message, self)
+    # @tweets << tweet
   end
 end
