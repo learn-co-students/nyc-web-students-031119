@@ -35,4 +35,6 @@ humans.colonize_planet(mars)
 # Colony.new(mars, humans)
 # Colony.new(venus, zorplings)
 
+humans.planets
+
 binding.pry

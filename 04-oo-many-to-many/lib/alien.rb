@@ -20,8 +20,9 @@ class Alien
   def planets
     # TODO: this mehtod should return an array of Planet instances
     # that this alien has colonies on
-
-    
+    self.colonies.map do |colony|
+      colony.planet
+    end
   end
 
 end
