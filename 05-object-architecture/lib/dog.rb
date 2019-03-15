@@ -1,2 +1,3 @@
-class Dog
+class Dog < Pet
+  include Pettable
 end

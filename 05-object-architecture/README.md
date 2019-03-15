@@ -1,10 +1,12 @@
 # Lecture Notes
 
 # DRY
-
+Don't Repeat Yourself
 
 
 ## What strategies for code reuse have we seen thus far
+
+methods, loops and iteration, variables, classes
 
 # My Pets
 
