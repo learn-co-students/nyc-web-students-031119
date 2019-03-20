@@ -6,6 +6,16 @@ DB = {
   conn: SQLite3::Database.new('db/twitter.db')
 }
 
+# module SQLite3
+#   class Database
+#     attr_accessor :results_as_hash
+#
+#     def initialize(filename, config = {})
+#
+#     end
+#   end
+# end
+
 
 DB[:conn].results_as_hash = true
 
