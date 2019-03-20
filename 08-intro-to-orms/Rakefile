@@ -4,3 +4,8 @@ desc 'Loads up a console!'
 task :console do
   Pry.start
 end
+
+desc 'says woof'
+task :dog  do
+  puts "woof"
+end

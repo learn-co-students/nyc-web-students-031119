@@ -12,6 +12,10 @@ tweets
 
 + Definition:
 
+Object Oriented Programming (Ruby world)
+Relational Databases (SQL)
+mapping back and forth between them
+
 
 
 ## Active Record Pattern
