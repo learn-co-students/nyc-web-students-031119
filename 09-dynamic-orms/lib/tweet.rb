@@ -33,22 +33,53 @@ class Tweet
   end
 
   def save
-    if self.persisted?
-      # update the existing record
+    # if the tweet is coming from the DB
+    # update it
+    if persisted?
+      update_record
     else
-      # do all this / create a new one
-      sql = <<-SQL
-        INSERT INTO tweets
-        (message, user_id)
-        VALUES (?, ?)
-      SQL
-
-      DB[:conn].execute(sql, self.message, self.user_id)
+      # otherwise, if its brand new
+      # insert into the db
+      insert_record
     end
   end
 
   def persisted?
     !!self.id
+  end
+
+  private
+
+  def insert_record
+    # sql = "INSERT INTO tweets (message, user_id) VALUES ('my latest tweet', 2)"
+    # sql = "INSERT INTO tweets (message, user_id) VALUES ('#{self.message}', #{self.user_id})"
+    sql = <<-SQL
+    INSERT INTO tweets
+    (message, user_id)
+    VALUES (?, ?);
+    SQL
+    # binding.pry
+    DB[:conn].execute(sql, self.message, self.user_id)
+
+    last_row_sql = <<-SQL
+    SELECT *
+    FROM tweets
+    ORDER BY id DESC
+    LIMIT 1
+    SQL
+    @id = DB[:conn].execute(last_row_sql)[0]["id"]
+    self
+  end
+
+  def update_record
+    sql = <<-SQL
+    UPDATE tweets
+    SET message = ?, user_id = ?
+    WHERE id = #{self.id}
+    SQL
+
+    DB[:conn].execute(sql, self.message, self.user_id)
+    self
   end
 
 end
