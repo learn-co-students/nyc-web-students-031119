@@ -3,14 +3,13 @@ class TweetsApp
   def call
     puts 'Welcome to Twitter'
 
-    puts 'Enter a username:'
-    username = gets.chomp
-    user = User.find_or_create_by(username: username)
+    puts 'Enter a user id:'
+    user_id = gets.chomp
 
     puts 'Enter a message:'
     message = gets.chomp
 
-    tweet = Tweet.new({'user_id' => user.id, 'message' => message})
+    tweet = Tweet.new({'user_id' => user_id, 'message' => message})
     tweet.save
 
     tweets = Tweet.all

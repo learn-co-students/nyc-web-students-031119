@@ -1,7 +1,5 @@
 # Dynamic ORMs
 
-# STEP 1: copy over completed Tweet Model code from 08
-
 We should be able to
   * Define a super class that our models can inherit from
   * Child class does not need to 'know' too much about the Database.
