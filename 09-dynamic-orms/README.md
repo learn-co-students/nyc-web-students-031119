@@ -9,6 +9,6 @@ We should be able to
 ## Active Record Pattern
 ORM
 SQL WORLD <> RUBY WORLD
-* Tables <> ?
-* Rows (Records) <> ?
-* Columns <> ?
+* Tables <> Class (Model)
+* Rows (Records) <> Instance
+* Columns <> attributes or properties that each instance has
