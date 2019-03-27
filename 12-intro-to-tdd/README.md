@@ -9,6 +9,9 @@
 ### Lecture Notes
 Define TDD vs. BDD
 
+EDD
+BDD
+
 ##### What is TDD
 - Write the test, it should be failing!
 - Write the code to make the test pass
