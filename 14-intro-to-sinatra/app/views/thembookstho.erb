@@ -1,0 +1,7 @@
+<h1> all the books sire/mad'am</h1>
+
+<ul>
+<% @books.each do |book| %>
+    <a href="/someroute"><li><%= book.title  %></li></a>
+<% end %>
+</ul>

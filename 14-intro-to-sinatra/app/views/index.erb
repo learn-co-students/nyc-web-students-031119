@@ -1,0 +1,7 @@
+<h1> this is the INDEXOR 🍪</h1>
+
+<ul>
+<% @books.each do |book| %>
+    <a href="/books/<%= book.id %>"><li><%= book.title  %></li></a>
+<% end %>
+</ul>
