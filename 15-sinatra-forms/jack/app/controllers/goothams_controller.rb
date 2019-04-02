@@ -47,34 +47,80 @@ class GoothamsController < ApplicationController
     erb :"/goothams/show.html"
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
+  # all good answer on what we want to do in here
+  # that's a super common interview question
+  # hey, got that request
+  # before you decide!!! check this _method
+  # where should it go? try to find which method, which controller action to hit
+  # FOUND IT!
   # POST: /goothams
-  post "/goothams" do
-    redirect "/goothams"
+  post "/goo" do
+    # binding.pry
+    # Gootham.new({ criminal_name: params["name"], secret_power: params["power"], length_of_last_prison_term: params["year"] })
+    # @g = Gootham.new(params)
+    # @g.save
+    gootham = Gootham.create(params)
+
+    # why redirect?
+    redirect "/goothams" # seen the lab that has redirect?
+    # redirect "https://google.com"
+
+    # kinda
+    # see some confirmation page
+    # erb :configmration
+
+    # send a response
+    # @gs = Gootham.all
+    # erb :"/goothams/index" # this is what is rendered
+    # something very off
+    # we want them to get to that index via a get to the index
   end
+  # you receive it
 
 
+
+
+
+
+  # getting things!
+  # if we want to update something
+  # some form to fill out to update things
+  # mod 1 => give them a prompt gets.chomp
 
   # GET: /goothams/5/edit
   get "/goothams/:id/edit" do
+    # yeah i have the id
+    # model
+    @give = Gootham.find(params[:id])
+
     erb :"/goothams/edit.html"
   end
 
   # PATCH: /goothams/5
   patch "/goothams/:id" do
-    redirect "/goothams/:id"
+    # binding.pry
+    # model
+    gootham = Gootham.find(params["id"])
+    # sooooooo close, can't use that params trick anymore
+    # can change it
+    # like reassign
+    # gettin gjuast the data we want
+
+    gootham.update(params[:gootham])
+
+    # response
+    #$ redirecting because if we refreshed before... not good
+    redirect "/goothams/#{gootham.id}"
   end
+
+
+
+
+
+
+
+
+
 
   # DELETE: /goothams/5/delete
   delete "/goothams/:id/delete" do

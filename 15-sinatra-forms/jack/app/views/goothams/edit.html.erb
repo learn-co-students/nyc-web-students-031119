@@ -1,1 +1,12 @@
 <h1>Insert the form to edit an instance of your model here.</h1>
+
+<!-- goooood question -->
+<form action="/goothams/<%= params["id"] %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <input type="text" name="gootham[criminal_name]" placeholder="Insert criminal's name" value="<%= @give.criminal_name %>">
+  <input type="text" name="gootham[secret_power]" placeholder="Insert secret power" value="<%= @give.secret_power %>">
+  <input type="text" name="gootham[length_of_last_prison_term]" placeholder="how many years?" value="<%= @give.length_of_last_prison_term %>">
+
+  <input type="submit" value="submit that crimnal!!!" />
+</form>
