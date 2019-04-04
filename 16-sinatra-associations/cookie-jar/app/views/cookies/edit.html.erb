@@ -1,0 +1,36 @@
+<h1>Insert the form to edit an instance of your model here.</h1>
+
+<form action="/cookies/<%= @cooky.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <!-- an aside for how to "update" without override -->
+
+  <label for="kind">Kind of Cookie:</label>
+  <input type="text" name="cooky[kind]" id="kind">
+  <br/>
+  <label for="size">Size of Cookie:</label>
+  <input type="text" name="cooky[size]" id="size">
+  <br/>
+  <label for="">Cook Time:</label>
+  <input type="text" name="cooky[cook_time]">
+  <br/>
+  <!-- wait... how do i know which jar_id to enter? -->
+  <label for="">Jar:</label>
+  <!-- <input type="number" name="cooky[jar_id]"> -->
+  <!-- something that shows the name -->
+  <select name="cooky[jar_id]">
+    <!-- statically... dynamitcally -->
+    <!-- metaphycaklly... should i use Jar.all hjere? -->
+    <% @jar_time.each do |jar| %>
+      <%# what things from the jar do i need? a lot of choices %>
+      <option value="<%= jar.id %>"><%= jar.color %></option>
+    <% end %>
+  </select>
+  <br/>
+  <input type="submit" value="Cookie time!">
+</form>
+
+<form action="/cookies/<%= @cooky.id %>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="DELETE Cookie time!">
+</form>
