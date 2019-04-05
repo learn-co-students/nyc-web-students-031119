@@ -9,6 +9,12 @@
 * Build controllers, views, models, migrations, and routes in Rails
 * Understand the significance of *convention over configuration* in Rails
 
+ocean
+  straws - integer
+  name - string
+  turtles - integer
+  jellyfish - integer
+
 ## What is Rails?
 
 Like Sinatra, Rails is a MVC web framework built on top of rack. Sinatra is more simple, lightweight, and minimalistic; it is more flexible but requires more configuration. Rails is generally preferred for more larger scale applications.

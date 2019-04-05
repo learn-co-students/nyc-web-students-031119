@@ -1,0 +1,2 @@
+class StrawsController < ApplicationController
+end

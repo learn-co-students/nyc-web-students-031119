@@ -1,0 +1,2 @@
+class Straw < ApplicationRecord
+end
