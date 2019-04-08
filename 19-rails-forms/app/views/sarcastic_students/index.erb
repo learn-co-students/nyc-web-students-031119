@@ -1,0 +1,5 @@
+<h1>Watch out for these Sarcastic Students:</h1>
+<% @students.each do |student| %>
+<%= link_to student.name, sarcastic_student_path(student) %>
+<br /><br />
+<% end %>

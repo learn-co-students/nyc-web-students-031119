@@ -1,0 +1,12 @@
+<h1><%= @student.name %></h1>
+<h2>Age:</h2>
+<%= @student.age %>
+<h2>Favorite Joke:</h2>
+<%= @student.fav_joke %>
+<h2>Blocked?</h2>
+<%= @student.blocked ? "Oh yeah" : "Nahhh"%>
+
+<br />
+<br />
+
+<%= link_to "Edit", edit_sarcastic_student_path %>

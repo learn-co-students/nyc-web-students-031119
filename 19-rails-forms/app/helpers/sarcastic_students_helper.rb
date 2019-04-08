@@ -1,0 +1,2 @@
+module SarcasticStudentsHelper
+end
