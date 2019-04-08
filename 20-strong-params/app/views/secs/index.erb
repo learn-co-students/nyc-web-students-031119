@@ -1,0 +1,6 @@
+<h1>All Software Engineering Coaches</h1>
+
+<% @secs.each do |sec| %>
+  <%= link_to sec.name, sec_path(sec) %> 
+  <br>
+<% end %>

@@ -1,0 +1,7 @@
+<h1>EDIT <%= @sec.name %> </h1>
+
+<%= form_for @sec do |form| %> 
+  <%= form.label :current_mod %>
+  <%= form.number_field :current_mod %>
+  <%= form.submit %>
+<% end %>
