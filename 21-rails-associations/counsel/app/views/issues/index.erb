@@ -1,0 +1,6 @@
+<h1> indexorrrerrRRR</h1>
+
+
+<% @issues.each do |issue| %>
+  <p><%= link_to issue.desc, issue_path(issue), {method: :patch } %></p>
+<% end %>

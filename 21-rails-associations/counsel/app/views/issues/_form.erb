@@ -1,0 +1,16 @@
+
+<%  if flash[:errors]%>
+  <% flash[:errors].each do |error| %>
+    <p> <%= error  %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @issue do |f| %>
+  description:
+  <%= f.text_field :desc %>
+  <%= f.label :severity %>
+  <%= f.number_field :severity %>
+  <%= f.label :teen_id %>
+  <%= f.collection_select(:teen_id, @teens, :id, :name, prompt: true) %>
+  <%= f.submit %>
+<% end %>

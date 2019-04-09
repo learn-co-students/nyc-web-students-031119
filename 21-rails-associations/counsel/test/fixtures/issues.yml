@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  severity: 1
+  teen_id: 1
+  desc: MyString
+
+two:
+  severity: 1
+  teen_id: 1
+  desc: MyString
