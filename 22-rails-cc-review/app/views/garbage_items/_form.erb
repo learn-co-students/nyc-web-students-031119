@@ -1,0 +1,31 @@
+<% text = @garbage_item.id ? "Edit ThiS Here Garbage Item" : "Ayeee Make That Piece O' Garbage"  %>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @garbage_item do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br />
+  <br />
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br />
+  <br />
+  <%= f.label :salvageable %>
+  <%= f.check_box :salvageable %>
+  <br />
+  <br />
+  <%= f.label :img_url, "Image Url" %>
+  <%= f.text_field :img_url %>
+  <br />
+  <br />
+  <%= f.label :dumpster_id %>
+  <%= f.collection_select :dumpster_id, @dumpsters, :id, :nickname, prompt: true %>
+  <br />
+  <br />
+  <%= f.submit text %>
+<% end %>

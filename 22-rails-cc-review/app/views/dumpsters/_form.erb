@@ -1,0 +1,31 @@
+<% text = @dumpster.id ? "Edit ThiS Here DUmpster" : "Ayeee Make That Dumpster"  %>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @dumpster do |f| %>
+  <%= f.label :nickname %>
+  <%= f.text_field :nickname %>
+  <br />
+  <br />
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <br />
+  <br />
+  <%= f.label :pick_up, "Pick Up Day" %>
+  <%= f.text_field :pick_up %>
+  <br />
+  <br />
+  <%= f.label :cubic_feet %>
+  <%= f.number_field :cubic_feet %>
+  <br />
+  <br />
+  <%= f.label :img_url, "Image Url" %>
+  <%= f.text_field :img_url %>
+  <br />
+  <br />
+  <%= f.submit text %>
+<% end %>

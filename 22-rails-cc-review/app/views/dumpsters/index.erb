@@ -1,0 +1,9 @@
+<h1>All Dumpsters</h1>
+
+<% @dumpsters.each do |dumpster| %>
+  <p><%= link_to dumpster.nickname, dumpster_path(dumpster) %></p>
+<% end %>
+
+<br />
+<br />
+<%= button_to "Add A Dumpster", new_dumpster_path, method: :get %>

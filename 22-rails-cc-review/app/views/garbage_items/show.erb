@@ -1,0 +1,13 @@
+<h1><%= @garbage_item.name %></h1>
+
+<h2>Description:</h2>
+<%= @garbage_item.description %>
+
+<h2>Salvageable</h2>
+<%= @garbage_item.salvageable ? "Reduce Reuse Recycle!" : "Actually 100% garbage" %>
+
+<h2>Which dumpster is it in?:</h2>
+<%= link_to @garbage_item.dumpster.nickname, dumpster_path(@garbage_item.dumpster) %>
+<br />
+<br />
+<img src=<%= @garbage_item.img_url %> style="max-width: 500px" />

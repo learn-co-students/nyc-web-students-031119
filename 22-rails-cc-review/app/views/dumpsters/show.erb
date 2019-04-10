@@ -1,0 +1,26 @@
+<h1><%= @dumpster.nickname %></h1>
+
+<h2>Location:</h2>
+<%= @dumpster.location %>
+
+<h2>Cubic Feet:</h2>
+<%= @dumpster.cubic_feet %>
+
+<h2>Pick Up Day Of The Week:</h2>
+<%= @dumpster.pick_up %>
+<br />
+<br />
+<img src=<%= @dumpster.img_url %> style="max-width: 500px" />
+
+<h1>Garbage Items In This Dumpster:</h1>
+
+<% @dumpster.garbage_items.each do |item| %>
+  <p><%= link_to item.name, garbage_item_path(item) %></p>
+<% end %>
+
+<br />
+<br />
+
+<%= link_to "START A GARBAGE FIRE", burnitall_path, {:style=>'font-size: 60px; color: yellow;'} %>
+<%= button_to "Edit Dumpster", edit_dumpster_path, method: :get %>
+<%= button_to "Delete Dumpster", dumpster_path, method: :delete %>

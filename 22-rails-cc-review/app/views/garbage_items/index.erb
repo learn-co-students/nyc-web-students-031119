@@ -1,0 +1,9 @@
+<h1>All Garbage Items</h1>
+
+<% @garbage_items.each do |garbage| %>
+  <p><%= link_to garbage.name, garbage_item_path(garbage) %></p>
+<% end %>
+
+<br />
+<br />
+<%= button_to "Add A Piece of Garbage", new_garbage_item_path, method: :get %>

@@ -1,0 +1,10 @@
+<h1>Make A New Piece O' Garbage</h1>
+<% text = @garbage_item.id ? "Edit ThiS Here Garbage Item" : "Ayeee Make That Piece O' Garbage"  %>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= render "form" %>
