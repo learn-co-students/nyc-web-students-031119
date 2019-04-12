@@ -1,0 +1,90 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#logo {
+  font-family: 'Lobster', cursive;
+  font-size: 6rem;
+}
+
+#login-container {
+  display: table;
+  width: 99vw;
+  height: 60vh;
+}
+
+#login-contents {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+#login {
+  width: 300px;
+  height: 30px;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 10px;
+}
+
+input[type=submit] {
+  margin: 5px;
+  width: 150px;
+  height: 50px;
+  font-size: 1.25rem;
+}
+
+#user-profile-container {
+  width: 750px;
+  margin: auto;
+}
+
+#user-info-container {
+
+  width: 100%;
+}
+
+#profile-photo-container {
+  text-align: center;
+  width: 24%;
+  display: inline-block;
+}
+
+#profile-photo-container img {
+  display: inline-block;
+  text-align: center;
+  width: 125px;
+  height: 125px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+#profile-info-container {
+  width: 70%;
+  display: inline-block;
+}
+
+#profile-info {
+  width: 75%;
+  margin: auto;
+}
+
+#user-posts-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+}
+
+.post {
+  width: 225px;
+}
+
+.post img {
+  width: 225px;
+  height: 225px;
+  object-fit: cover;
+}
+
+@import "bootstrap";

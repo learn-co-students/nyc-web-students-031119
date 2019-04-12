@@ -1,0 +1,9 @@
+<%= form_for @post, url: create_user_post_path do |f| %>
+  <%= f.label :img_url, "Image Url" %>
+  <%= f.text_field :img_url %>
+  <br /><br />
+  <%= f.label :caption%>
+  <%= f.text_field :caption %>
+  <br /><br />
+  <%= f.submit %>
+<% end %>

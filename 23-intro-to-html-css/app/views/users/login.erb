@@ -1,0 +1,10 @@
+<div id="login-container">
+  <div id="login-contents">
+    <span id="logo">Christagram</span>
+    <%= form_tag "/login", method: "post" do %>
+    <%= text_field_tag :login, nil, placeholder: "enter username" %>
+    <br />
+    <%= submit_tag "Login" %>
+    <% end %>
+  </div>
+</div>

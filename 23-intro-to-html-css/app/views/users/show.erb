@@ -1,0 +1,30 @@
+<div id="user-profile-container">
+  <div id="user-info-container">
+    <div id="profile-photo-container">
+      <img src=<%= @user.profile_img %> />
+    </div>
+    <div id="profile-info-container">
+      <div id="profile-info">
+        <h2><%= @user.username %></h2>
+        <p><%= @user.bio %></p>
+        <p><%= @user.followers %></p>
+        <p><%= @user.followings %></p>
+      </div>
+    </div>
+  </div>
+  <div id="user-posts-container" class="card-deck">
+    <% @user.posts.each do |post| %>
+    <div id="user-post-<%= post.id %>" class="post card" style="min-width: 225px;">
+      <img class="card-img-top" src=<%= post.img_url %> />
+      <div class="card-body">
+        <div>
+          <p class="card-text">
+            <%= post.caption %>
+          </p>
+          <button type="button" class="btn btn-danger">Primary</button>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
