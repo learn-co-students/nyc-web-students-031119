@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ZooKeepr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="src/index.js"></script>
+  </head>
+
+  <body style='background-color:white'>
+
+    <!--  navbar-->
+    <div class="ui inverted orange menu">
+      <a class='item'>
+        <h2 class="ui header">
+          <i class="paw icon"></i>
+          <div class="content">
+            ZooKeepr
+          </div>
+          <div class="sub header">
+            Keep track of your animals
+          </div>
+        </h2>
+      </a>
+    </div>
+
+
+    <div class='ui centered grid'>
+
+      <!-- form -->
+      <div class="row">
+        <div class='fourteen wide column'>
+          <form class="ui form">
+            <div class="three fields">
+
+              <div class="field">
+                <label>Animal Name</label>
+                <input id='animal-name' name="name" placeholder="Animal Name" type="text">
+              </div>
+
+              <div class="field">
+                <label>Species</label>
+                <input name="species" id='animal-species' placeholder="Species" type="text">
+              </div>
+
+              <div class="field">
+                 <label>Dietary Type</label>
+                 <select class="ui selection dropdown">
+                    <option value="" disabled selected>Dietary Type</option>
+                    <option class="item" value="0">Carnivore</option>
+                    <option class="item" value="1">Herbivore</option>
+                    <option class="item" value="2">Omnivore</option>
+                 </select>
+              </div>
+
+            </div>
+            <button class="ui basic button" type="submit">Add Animal</button>
+          </form>
+        </div>
+      </div>
+
+      <!--  table -->
+      <div class="row">
+
+        <div class='one wide column'></div>
+
+        <div class = 'fourteen wide column'>
+          <table class="ui celled table">
+            <thead>
+              <tr>
+                <th>Animal Name</th>
+                <th>Species ID</th>
+                <th>Dietary Type</th>
+              </tr>
+              <!-- Example rows  -->
+              <!-- <tr>
+                <td>Bianca</td>
+                <td>1</td>
+                <td>Carnivore</td>
+              </tr>
+              <tr>
+                <td>Belinda</td>
+                <td>2</td>
+                <td>Herbivore</td>
+              </tr> -->
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class='one wide column'></div>
+
+      </div>
+
+    </div>
+
+    <!-- <script>$('.selection.dropdown').dropdown()</script> -->
+  </body>
+</html>
