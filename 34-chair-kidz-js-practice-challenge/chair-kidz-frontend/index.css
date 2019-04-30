@@ -1,0 +1,88 @@
+
+html {
+  font-size: 12px;
+}
+
+body {
+  width: 100vw;
+}
+
+img {
+  width: 300px;
+}
+
+
+#app-container {
+  width: 1200px;
+  margin: auto;
+}
+
+#header-container {
+  font-size: 5rem;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 250px;
+  margin-bottom: 50px;
+}
+
+
+#chairs-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+}
+
+#message-container {
+  height: 50px;
+  text-align: center;
+}
+
+#title {
+  margin: auto;
+  text-align: center;
+}
+
+#throne {
+  font-size: 1.5rem;
+  padding-left: 35px;
+  padding-top: 75px;
+  text-align: center;
+  margin: auto;
+  height: 250px;
+  width: 250px;
+  background-image: url(http://files.sysers.com/cp/upload/ltwk/editor/images/chicago_throne_chair_rentals.png);
+  background-size: cover;
+}
+
+#add-kid-container {
+  font-size: 1.5rem;
+}
+
+.kid-chair-container{
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 250px;
+  height: 250px;
+  background-image: url(https://www.ikea.com/us/en/images/products/renberget-swivel-chair-black__0499306_PE630212_S4.JPG);
+  background-size: cover;
+}
+
+.attribute{
+  background-color: rgba(255, 255, 255, 0.5)
+}
+
+.attribute a{
+  color: black;
+}
+
+.image {
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
