@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DOGGO</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- <script type="text/javascript" src="src/index.js"></script> -->
+    <script type="text/javascript" src="src/adapter.js"></script>
+    <script type="text/javascript" src="src/dog.js"></script>
+    <script type="text/javascript" src="src/oo_index.js"></script>
+    <link rel="shortcut icon" href="doge.jpeg">
+  </head>
+  <body>
+    <div id="filter-div">
+      <button id="good-dog-filter">Filter good dogs: OFF</button>
+    </div>
+    <div id="dog-bar">
+
+    </div>
+    <div id="dog-summary-container">
+      <form id="dog-form" action="index.html" method="post">
+        <label for="name">Name: </label>
+        <input id="dog-name-input" type="text" name="name" value="">
+
+        <label for="image">Image: </label>
+        <input id="dog-img-input" type="text" name="image" value="">
+
+        <label for="good">Good Dog? </label>
+        <input id="good-dog-input" type="checkbox" name="good" value="">
+
+        <button type="submit" name="button">Edit Dog!</button>
+      </form>
+      <h1>DOGGO:</h1>
+      <div id="dog-info">
+
+      </div>
+    </div>
+  </body>
+</html>
