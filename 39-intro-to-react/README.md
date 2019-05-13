@@ -1,5 +1,14 @@
 Intro to React // JSX & Props
 =============================
+managaggaging the DOM
+what the current state of the DOM is
+what belongs in one particular file
+code becoming unmanageable as the app grows
+
+Adding event listeners to elements that dont exist
+file structure,
+tracking recursion
+
 
 ## SWBATs
 
@@ -105,10 +114,10 @@ ReactDOM.render(
 In thinking about props, repeat this mantra: props are to components as arguments are to functions!
 
 Think back to mod 1:
-Before ActiveRecord, you passed in arguments one by one and in a particular order: `User.new("Alex", 23, "therapist"`
+Before ActiveRecord, you passed in arguments one by one and in a particular order: `User.new("Alex", 23, "therapist")`
 
 With ActiveRecord, you passed a single hash and mapped your values onto the specific keys they corresponded to:
-`User.new(name: "Alex", age: 23, occupation: "therapist"`
+`User.new(name: "Alex", age: 23, occupation: "therapist")`
 
 This is very much analogous to the change over from regular ol' JS functions to JSX components
 

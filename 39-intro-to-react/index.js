@@ -19,22 +19,71 @@ console.log('are we here');
 //     </a>
 //   </div>
 
-const navbar = (color, icon, title) => {
-  return React.createElement('div', {className: `ui inverted ${color} menu`},
-    // React.createElement()
+const navbar = (props) => {
+  return React.createElement('div', {className: `ui inverted ${props.color} menu`},
+    React.createElement('a', {className: 'item'},
+      React.createElement('h2', {className: 'ui header'}, [
+        React.createElement('i', {className: `${props.icon} icon`}, null),
+        React.createElement('div', {className: 'content'}, props.title),
+      ])
+    )
   )
 }
 
-const article = (title, text) => {
-  return React.createElement(
-    "div",
-    {className: "article"}, [
-    React.createElement("h1", {}, title),
-    React.createElement("p", {}, text)
+// const article = (title, text) => {
+//   return React.createElement(
+//     "div",
+//     {className: "article"}, [
+//     React.createElement("h1", {}, title),
+//     React.createElement("p", {}, text)
+//   ])
+// }
+
+const Article = (props) => {
+  // console.log('Article is called', title, text);
+  return (
+    <div>
+      <h1> {props.title}</h1>
+      <p> {props.text} </p>
+    </div>
+  )
+}
+
+const Navbar = (props) => {
+  return (
+    <div className={`ui inverted ${props.color} menu`}>
+        <a className='item'>
+          <h2 className="ui header">
+            <i className={`${props.icon} icon`}></i>
+            <div className="content">
+              {props.title}
+            </div>
+          </h2>
+        </a>
+      </div>
+  )
+}
+
+
+
+const app = (color, icon, title, articleTitle, articleText) => {
+  return React.createElement('div', {}, [
+    navbar(color, icon, title),
+    article(articleTitle, articleText)
   ])
 }
 
+const App = (props) => {
+  return (
+    <div>
+      <Navbar color="red" icon="bug" title={props.appTitle} />
+      <Article title="Sunburnt Forever!" text="westchesterlyfe" />
+    </div>
+  )
+}
+
 ReactDOM.render(
-  navbar(),
+  <App appTitle="Bugged In!"/>,
+  // navbar({color: 'pink', icon: 'bug', title: 'bugged out!'}),
   document.getElementById('container')
 )
