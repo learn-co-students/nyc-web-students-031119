@@ -48,6 +48,12 @@ class Navbar extends React.Component {
             </div>
           </h2>
         </a>
+        <div className="item" onClick={() => this.props.handlePageClick("all")}>
+          All Paintings
+        </div>
+        <div className="item" onClick={() => this.props.handlePageClick("add")}>
+          Add a Painting
+        </div>
         <div className="right floated item">
           <button
           onClick={this.handleColorClick}

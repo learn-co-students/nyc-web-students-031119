@@ -1,7 +1,7 @@
 import React from 'react';
-import paintings from './artworks'
 import Navbar from './Navbar'
 import PaintingList from './PaintingList'
+import PaintingForm from './PaintingForm'
 
 // const App = (props) => {
 //   return (
@@ -13,13 +13,51 @@ import PaintingList from './PaintingList'
 
 
 class App extends React.Component {
-  render() {
-    console.log('app is rendering', paintings);
 
+  state = {page: "all"}
+
+  // if (this.state.page === "all") {
+  //   <PaintingList />
+  // } else {
+  //   <PaintingForm />
+  // }
+
+  // handleAddClick = () => {
+  //   this.setState({page: "add"})
+  // }
+  //
+  // handleAllClick = () => {
+  //   this.setState({page: "all"})
+  // }
+
+  handlePageClick = (page) => {
+    this.setState({ page })
+  }
+
+  renderPage() {
+    switch(this.state.page) {
+      case "all":
+        return <PaintingList />
+      case "add":
+        return <PaintingForm />
+      default:
+        return <PaintingList />
+    }
+  }
+
+  render() {
     return (
       <div className="App">
-        <Navbar title={this.props.title} icon="paint brush"/>
-        <PaintingList paintings={paintings}/>
+        <Navbar
+          title={this.props.title}
+          icon="paint brush"
+          handlePageClick={this.handlePageClick}
+        />
+        <div className="ui container">
+          {
+            this.renderPage()
+          }
+        </div>
       </div>
     )
   }

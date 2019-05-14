@@ -1,23 +1,48 @@
 import React from 'react'
 
-const PaintingCard = (props) => {
+class PaintingCard extends React.Component {
   // console.log('PaintingCard props', props.painting);
-  return (
-    <div className="item">
-      <div className="ui small image">
-        <img src={props.painting.image} alt={props.painting.slug}/>
-      </div>
-      <div className="middle aligned content">
-        <div className="header">{props.painting.title} by {props.painting.artist.name}</div>
-        <div className="description">
-          <a href="/">
-            <i className="large caret up icon" />
-            {props.painting.votes} votes
-          </a>
+
+  // state = {
+  //   votes: this.props.painting.votes,
+  //   name: "hi"
+  // }
+
+  // handleVote = () => {
+  //   // console.log('clicked!');
+  //   this.setState({votes: this.state.votes + 1})
+  //   // this.setState({votes: this.state.votes + 1})
+  //   // this.setState({votes: this.state.votes + 1})
+  //   // this.setState({votes: this.state.votes + 1})
+  // }
+
+
+
+  render() {
+    const painting = this.props.painting
+    // console.log('the new votes are', this.state.votes);
+    // console.log(this.state.votes);
+    console.log(this.props);
+    return (
+      <div className="item">
+        <div className="ui small image">
+          <img src={this.props.painting.image} alt={this.props.painting.slug}/>
+        </div>
+        <div className="middle aligned content">
+          <div className="header">{this.props.painting.title} by {this.props.painting.artist.name}</div>
+          <div className="description">
+          <a href="/" onClick={(e) => {
+            e.preventDefault()
+            this.props.onClick(this.props.painting.id)
+          }}>
+              <i className="large caret up icon" />
+              {this.props.painting.votes} votes
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default PaintingCard
