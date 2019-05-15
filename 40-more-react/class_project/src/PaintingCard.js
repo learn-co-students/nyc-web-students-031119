@@ -7,13 +7,17 @@ class PaintingCard extends React.Component {
   //   votes: this.props.painting.votes,
   //   name: "hi"
   // }
-
+  // 
   // handleVote = () => {
   //   // console.log('clicked!');
+  //   this.setState((prevState) => ({votes: prevState.votes + 1}))
+  //   this.setState((prevState) => ({votes: prevState.votes + 1}))
+  //   this.setState((prevState) => ({votes: prevState.votes + 1}))
+  //   this.setState((prevState) => ({votes: prevState.votes + 1}))
   //   this.setState({votes: this.state.votes + 1})
-  //   // this.setState({votes: this.state.votes + 1})
-  //   // this.setState({votes: this.state.votes + 1})
-  //   // this.setState({votes: this.state.votes + 1})
+  //   this.setState({votes: this.state.votes + 1})
+  //   this.setState({votes: this.state.votes + 1})
+  //   console.log('this happens first');
   // }
 
 
@@ -22,7 +26,7 @@ class PaintingCard extends React.Component {
     const painting = this.props.painting
     // console.log('the new votes are', this.state.votes);
     // console.log(this.state.votes);
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="item">
         <div className="ui small image">
