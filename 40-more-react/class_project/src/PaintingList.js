@@ -1,12 +1,13 @@
 import React from 'react'
-import PaintingCard from './PaintingCard'
+import DeleteablePainting from './DeleteablePainting'
 
 
 class PaintingList extends React.Component {
 
   render() {
     const paintingCards = this.props.paintings.map(painting => {
-      return <PaintingCard painting={painting} onClick={this.props.handleVoteClick} key={painting.id} />
+      return <DeleteablePainting painting={painting} onClick={this.props.handleVoteClick} key={painting.id}/>
+      // return <PaintingCard painting={painting} onClick={this.props.handleVoteClick} key={painting.id} />
     })
 
     return (

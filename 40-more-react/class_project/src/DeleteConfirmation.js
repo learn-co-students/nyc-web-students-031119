@@ -23,7 +23,7 @@ import React from 'react'
 
 
 
-const PaintingCard = (props) => {
+const DeleteConfirmation = (props) => {
     const painting = props.painting
     // console.log('the new votes are', this.state.votes);
     // console.log(this.state.votes);
@@ -34,27 +34,17 @@ const PaintingCard = (props) => {
           <img src={props.painting.image} alt={props.painting.slug}/>
         </div>
         <div className="content">
-          <div className="header">{props.painting.title}</div>
-          <div className="meta">by {props.painting.artist.name}</div>
-        </div>
-        <div className="content">
-          <a href="/" onClick={(e) => {
-            e.preventDefault()
-            props.handleVoteClick(props.painting.id)
-          }}>
-            <i className="large caret up icon" />
-            {props.painting.votes} votes
-          </a>
+          <div className="header">
+            Are you sure you want to delete {props.painting.title}?????
+          </div>
         </div>
         <div className="extra content">
           <div className="ui two buttons">
-            <div className="ui basic blue button">
-              <i className="add circle icon" />
-              More Info
+            <div onClick={props.toggleDeleteClick} className="ui basic positive button">
+              Cancel
             </div>
-            <div className="ui button basic red" onClick={props.toggleDeleteClick}>
-              <i className="trash icon" />
-              Delete It
+            <div className="ui button basic red" >
+              Delete It For SUre!
             </div>
           </div>
         </div>
@@ -62,4 +52,4 @@ const PaintingCard = (props) => {
     );
   }
 
-export default PaintingCard
+export default DeleteConfirmation
