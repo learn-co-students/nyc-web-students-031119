@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar'
 import PaintingList from './PaintingList'
 import PaintingForm from './PaintingForm'
-import paintings from './artworks'
+// import paintings from './artworks'
 
 // const App = (props) => {
 //   return (
@@ -18,8 +18,16 @@ class App extends React.Component {
 
   state = {
     page: "all",
-    paintings: paintings.sort((a, b) => b.votes - a.votes),
+    paintings: [],
     mike: "cheng"
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3001/api/v1/paintings")
+    .then(res => res.json())
+    .then(data => {
+      this.setState({paintings: data.sort((a, b) => b.votes - a.votes)})
+    })
   }
 
   handleVoteClick = (id) => {
@@ -91,6 +99,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('APP is rendering', this.state);
     return (
       <div className="App">
         <Navbar

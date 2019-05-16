@@ -22,6 +22,27 @@ import React from 'react'
   // }
 
 
+  class Button extends React.Component {
+    render() {
+      console.log("Button Props", this.props);
+      return (
+        <div className={`ui basic ${this.props.color} button`}>
+          {this.props.children}
+        </div>
+      )
+    }
+  }
+
+  // <div className="ui basic blue button">
+  //   <i className="add circle icon" />
+  //   More Info
+  // </div>
+
+  // <div className="ui button basic red" onClick={props.toggleDeleteClick}>
+  //   <i className="trash icon" />
+  //   Delete It
+  // </div>
+
 
 const PaintingCard = (props) => {
     const painting = props.painting
@@ -48,14 +69,14 @@ const PaintingCard = (props) => {
         </div>
         <div className="extra content">
           <div className="ui two buttons">
-            <div className="ui basic blue button">
+            <Button color="blue">
               <i className="add circle icon" />
               More Info
-            </div>
-            <div className="ui button basic red" onClick={props.toggleDeleteClick}>
-              <i className="trash icon" />
+            </Button>
+            <Button color="red">
               Delete It
-            </div>
+              <i className="trash icon" />
+            </Button>
           </div>
         </div>
       </div>
