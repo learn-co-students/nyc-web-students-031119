@@ -22,7 +22,7 @@ React Best Practices
 Functional
 Class => needs state, need lifecycle methods
 hooks => new feature of React, allows for functional components to hook into All
-featurs of React, including component state, and component lifecycle
+features of React, including component state, and component lifecycle
 
 
 

@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from './Button'
+import PainterestIcon from './PainterestIcon'
 
 const colors = [
   'red',
@@ -42,7 +44,7 @@ class Navbar extends React.Component {
       <div className={`ui inverted ${this.state.color} menu`}>
         <a className='item' href="/">
           <h2 className="ui header">
-            <i className={`${this.props.icon} icon`}></i>
+            <PainterestIcon icon={this.props.icon}/>
             <div className="content">
               {this.props.title}
             </div>
@@ -55,12 +57,9 @@ class Navbar extends React.Component {
           Add a Painting
         </div>
         <div className="right floated item">
-          <button
-          onClick={this.handleColorClick}
-          className="ui button"
-          >
+          <Button onClick={this.handleColorClick}>
             Change Color
-          </button>
+          </Button>
         </div>
       </div>
     )

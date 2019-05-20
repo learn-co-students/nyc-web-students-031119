@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Navbar from './Navbar'
 import PaintingList from './PaintingList'
 import PaintingForm from './PaintingForm'
@@ -48,6 +48,14 @@ class App extends React.Component {
     })
 
   }
+
+  handleDeleteClick = (id) => {
+    this.setState(prevState => {
+      return {
+        paintings: prevState.paintings.filter(pntg => pntg.id !== id)
+      }
+    })
+  }
   // if (this.state.page === "all") {
   //   <PaintingList />
   // } else {
@@ -72,6 +80,7 @@ class App extends React.Component {
       return <PaintingList
                 paintings={this.state.paintings}
                 handleVoteClick={this.handleVoteClick}
+                handleDeleteClick={this.handleDeleteClick}
                />
       case "add":
         return <PaintingForm handleSubmit={this.handleSubmit}/>
@@ -105,8 +114,7 @@ class App extends React.Component {
     // React.createElement()
     // => {}
     return (
-      <>
-        <p>Hello</p>
+      <div style={{backgroundColor: this.props.color}}>
         <Navbar
           title={this.props.title}
           icon="paint brush"
@@ -117,7 +125,7 @@ class App extends React.Component {
             this.renderPage()
           }
         </div>
-      </>
+      </div>
     )
   }
 }

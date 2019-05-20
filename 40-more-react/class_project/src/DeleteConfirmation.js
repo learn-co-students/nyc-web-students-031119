@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './Button'
 
 // class PaintingCard extends React.Component {
 //   state = {confirmation: false}
@@ -24,6 +25,7 @@ import React from 'react'
 
 
 const DeleteConfirmation = (props) => {
+    console.log(props);
     const painting = props.painting
     // console.log('the new votes are', this.state.votes);
     // console.log(this.state.votes);
@@ -40,12 +42,12 @@ const DeleteConfirmation = (props) => {
         </div>
         <div className="extra content">
           <div className="ui two buttons">
-            <div onClick={props.toggleDeleteClick} className="ui basic positive button">
+            <Button onClick={props.toggleDeleteClick}>
               Cancel
-            </div>
-            <div className="ui button basic red" >
+            </Button>
+            <Button onClick={() => props.handleDeleteClick(props.painting.id)}>
               Delete It For SUre!
-            </div>
+            </Button>
           </div>
         </div>
       </div>

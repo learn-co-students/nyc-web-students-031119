@@ -1,4 +1,5 @@
-import React, { PureComponent } from 'react'
+import React, { Component, PureComponent } from 'react'
+import Button from './Button'
 
 // class PaintingCard extends React.Component {
 //   state = {confirmation: false}
@@ -44,7 +45,7 @@ import React, { PureComponent } from 'react'
   // </div>
 
 
-class PaintingCard extends PureComponent {
+class PaintingCard extends Component {
 
   render() {
     const painting = this.props.painting
@@ -52,12 +53,12 @@ class PaintingCard extends PureComponent {
     // console.log(this.state.votes);
     console.log("Painting Card is rendering", this.props);
     return (
-      <div className="ui card">
+      <div className="ui card" style={{backgroundColor: this.props.color}}>
         <div className="image">
           <img src={this.props.painting.image} alt={this.props.painting.slug}/>
         </div>
         <div className="content">
-          { this.props.painting ? <div className="header">{this.props.painting.title}</div> : null }
+          <div className="header">{this.props.painting.title}</div>
           <div className="meta">by {this.props.painting.artist.name}</div>
         </div>
         <div className="content">
@@ -71,17 +72,16 @@ class PaintingCard extends PureComponent {
         </div>
         <div className="extra content">
           <div className="ui two buttons">
-            <div className="ui basic blue button">
+            <Button>
               <i className="add circle icon" />
               More Info
-            </div>
-            <div
-              className="ui basic red button"
+            </Button>
+            <Button
               onClick={this.props.toggleDeleteClick}
             >
               <i className="trash icon" />
               Delete It
-            </div>
+            </Button>
           </div>
         </div>
       </div>
