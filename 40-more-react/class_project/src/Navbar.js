@@ -35,8 +35,8 @@ class Navbar extends React.Component {
   }
 
   render() {
-    console.log('Navbar starts rendering');
-    console.log('state is', this.state, this);
+  //   console.log('Navbar starts rendering');
+  //   console.log('state is', this.state, this);
     // const { title, color, icon } = this.props
     return (
       <div className={`ui inverted ${this.state.color} menu`}>

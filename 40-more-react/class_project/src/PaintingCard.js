@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 
 // class PaintingCard extends React.Component {
 //   state = {confirmation: false}
-  // console.log('PaintingCard props', props.painting);
+  // console.log('PaintingCard this.props', props.painting);
 
   // state = {
   //   votes: props.painting.votes,
@@ -22,16 +22,16 @@ import React from 'react'
   // }
 
 
-  class Button extends React.Component {
-    render() {
-      console.log("Button Props", this.props);
-      return (
-        <div className={`ui basic ${this.props.color} button`}>
-          {this.props.children}
-        </div>
-      )
-    }
-  }
+  // class Button extends React.Component {
+  //   render() {
+  //     // console.log("Button Props", this.props);
+  //     return (
+  //       <div className={`ui basic ${this.props.color} button`}>
+  //         {this.props.children}
+  //       </div>
+  //     )
+  //   }
+  // }
 
   // <div className="ui basic blue button">
   //   <i className="add circle icon" />
@@ -44,43 +44,49 @@ import React from 'react'
   // </div>
 
 
-const PaintingCard = (props) => {
-    const painting = props.painting
+class PaintingCard extends PureComponent {
+
+  render() {
+    const painting = this.props.painting
     // console.log('the new votes are', this.state.votes);
     // console.log(this.state.votes);
-    // console.log(props);
+    console.log("Painting Card is rendering", this.props);
     return (
       <div className="ui card">
         <div className="image">
-          <img src={props.painting.image} alt={props.painting.slug}/>
+          <img src={this.props.painting.image} alt={this.props.painting.slug}/>
         </div>
         <div className="content">
-          <div className="header">{props.painting.title}</div>
-          <div className="meta">by {props.painting.artist.name}</div>
+          { this.props.painting ? <div className="header">{this.props.painting.title}</div> : null }
+          <div className="meta">by {this.props.painting.artist.name}</div>
         </div>
         <div className="content">
           <a href="/" onClick={(e) => {
             e.preventDefault()
-            props.handleVoteClick(props.painting.id)
+            this.props.handleVoteClick(this.props.painting.id)
           }}>
             <i className="large caret up icon" />
-            {props.painting.votes} votes
+            {this.props.painting.votes} votes
           </a>
         </div>
         <div className="extra content">
           <div className="ui two buttons">
-            <Button color="blue">
+            <div className="ui basic blue button">
               <i className="add circle icon" />
               More Info
-            </Button>
-            <Button color="red">
-              Delete It
+            </div>
+            <div
+              className="ui basic red button"
+              onClick={this.props.toggleDeleteClick}
+            >
               <i className="trash icon" />
-            </Button>
+              Delete It
+            </div>
           </div>
         </div>
       </div>
     );
+   }
   }
 
 export default PaintingCard

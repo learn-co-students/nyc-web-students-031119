@@ -13,6 +13,8 @@ import PaintingForm from './PaintingForm'
 // }
 
 
+// new PaintingList().myFunc()
+
 class App extends React.Component {
 
 
@@ -100,8 +102,11 @@ class App extends React.Component {
 
   render() {
     console.log('APP is rendering', this.state);
+    // React.createElement()
+    // => {}
     return (
-      <div className="App">
+      <>
+        <p>Hello</p>
         <Navbar
           title={this.props.title}
           icon="paint brush"
@@ -112,7 +117,7 @@ class App extends React.Component {
             this.renderPage()
           }
         </div>
-      </div>
+      </>
     )
   }
 }
