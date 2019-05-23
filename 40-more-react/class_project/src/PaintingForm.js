@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 class PaintingForm extends React.Component {
   state = {
@@ -7,13 +8,6 @@ class PaintingForm extends React.Component {
     imageUrl: ""
   }
 
-  // handleTitleChange = (e) => {
-  //   this.setState({title: e.target.value})
-  // }
-  //
-  // handleNameChange = (e) => {
-  //   this.setState({this.state: e.target.value})
-  // }
 
   handleChange = (e) => {
     // console.log(e.target.name);
@@ -38,7 +32,7 @@ class PaintingForm extends React.Component {
         onSubmit={(e) => {
           e.preventDefault()
           this.props.handleSubmit(this.state)
-          this.setState({title: "", artistName: "", imageUrl: ""})
+          this.props.history.push("/paintings")
         }}
       >
         <div className="field">
@@ -59,4 +53,4 @@ class PaintingForm extends React.Component {
   }
 }
 
-export default PaintingForm
+export default withRouter(PaintingForm)

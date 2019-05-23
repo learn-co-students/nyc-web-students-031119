@@ -53,6 +53,8 @@ class PaintingContainer extends React.Component {
         ]
       }
     })
+
+    this.props.history.push("/paintings")
   }
 
   handleDeleteClick = (id) => {
