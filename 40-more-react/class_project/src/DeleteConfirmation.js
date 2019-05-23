@@ -43,7 +43,7 @@ const DeleteConfirmation = (props) => {
             <div onClick={props.toggleDeleteClick} className="ui basic positive button">
               Cancel
             </div>
-            <div className="ui button basic red" >
+            <div onClick={() => props.handleDeleteClick(props.painting.id)} className="ui button basic red" >
               Delete It For SUre!
             </div>
           </div>

@@ -7,10 +7,15 @@ class PaintingList extends React.Component {
   myFunc() {
     console.log('hello');
   }
-  
+
   render() {
     const paintingCards = this.props.paintings.map(painting => {
-      return <DeleteablePainting painting={painting} onClick={this.props.handleVoteClick} key={painting.id}/>
+      return <DeleteablePainting
+          painting={painting}
+          onVoteClick={this.props.handleVoteClick}
+          onDeleteClick={this.props.handleDeleteClick} 
+          key={painting.id}
+        />
       // return <PaintingCard painting={painting} onClick={this.props.handleVoteClick} key={painting.id} />
     })
 

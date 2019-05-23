@@ -14,11 +14,12 @@ class DeleteablePainting extends React.Component {
       return <DeleteConfirmation
         painting={this.props.painting}
         toggleDeleteClick={this.toggleDeleteClick}
+        handleDeleteClick={this.props.onDeleteClick}
        />
     } else {
       return <PaintingCard
          painting={this.props.painting}
-         handleVoteClick={this.props.onClick}
+         handleVoteClick={this.props.onVoteClick}
          toggleDeleteClick={this.toggleDeleteClick}
         />
     }

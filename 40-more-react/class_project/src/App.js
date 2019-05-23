@@ -1,26 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
 import Navbar from './Navbar'
-import PaintingList from './PaintingList'
-import PaintingForm from './PaintingForm'
-// import paintings from './artworks'
+import Login from './Login'
+import PaintingContainer from './PaintingContainer'
+import About from './About'
 
-// const App = (props) => {
-//   return (
-//     <div className="App">
-//       {props.title}
-//     </div>
-//   );
-// }
-
-
-// new PaintingList().myFunc()
 
 class App extends React.Component {
 
 
   state = {
-    page: "all",
-    paintings: [],
+    page: "",
     mike: "cheng"
   }
 
@@ -68,56 +58,30 @@ class App extends React.Component {
 
   renderPage() {
     switch(this.state.page) {
-      case "all":
-      return <PaintingList
-                paintings={this.state.paintings}
-                handleVoteClick={this.handleVoteClick}
-               />
+      case "about":
+        return <About />
       case "add":
-        return <PaintingForm handleSubmit={this.handleSubmit}/>
+      case "all":
+        return <PaintingContainer page={this.state.page}/>
+      case "login":
+        return <Login />
       default:
-        return <PaintingList />
+        return <About />
     }
-  }
-
-  handleSubmit = (painting) => {
-    const newPainting = {
-      image: painting.imageUrl,
-      artist: {name: painting.artistName },
-      title: painting.title,
-      votes: 2003,
-      id: painting.imageUrl
-    }
-    // console.log(newPainting);
-
-    this.setState(prevState => {
-      return {
-        paintings: [
-          newPainting,
-          ...prevState.paintings
-        ]
-      }
-    })
   }
 
   render() {
-    console.log('APP is rendering', this.state);
-    // React.createElement()
-    // => {}
     return (
-      <>
-        <p>Hello</p>
+      <Fragment>
         <Navbar
           title={this.props.title}
           icon="paint brush"
           handlePageClick={this.handlePageClick}
         />
         <div className="ui container">
-          {
-            this.renderPage()
-          }
+          {this.renderPage()}
         </div>
-      </>
+      </Fragment>
     )
   }
 }

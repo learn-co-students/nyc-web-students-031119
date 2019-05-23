@@ -47,10 +47,9 @@ import React, { PureComponent } from 'react'
 class PaintingCard extends PureComponent {
 
   render() {
-    const painting = this.props.painting
     // console.log('the new votes are', this.state.votes);
     // console.log(this.state.votes);
-    console.log("Painting Card is rendering", this.props);
+    // console.log("Painting Card is rendering", this.props);
     return (
       <div className="ui card">
         <div className="image">

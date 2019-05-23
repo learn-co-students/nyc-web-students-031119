@@ -40,7 +40,14 @@ class Navbar extends React.Component {
     // const { title, color, icon } = this.props
     return (
       <div className={`ui inverted ${this.state.color} menu`}>
-        <a className='item' href="/">
+        <a
+          className='item'
+          href="/"
+          onClick={(e) => {
+            e.preventDefault()
+            this.props.handlePageClick("about")
+          }}
+        >
           <h2 className="ui header">
             <i className={`${this.props.icon} icon`}></i>
             <div className="content">
@@ -48,6 +55,9 @@ class Navbar extends React.Component {
             </div>
           </h2>
         </a>
+        <div className="item" onClick={() => this.props.handlePageClick("login")}>
+          Login
+        </div>
         <div className="item" onClick={() => this.props.handlePageClick("all")}>
           All Paintings
         </div>
