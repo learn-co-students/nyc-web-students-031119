@@ -1,4 +1,6 @@
 import React from 'react'
+import { Switch, Route } from 'react-router-dom'
+
 import PaintingList from './PaintingList'
 import PaintingForm from './PaintingForm'
 import PaintingShow from './PaintingShow'
@@ -62,20 +64,43 @@ class PaintingContainer extends React.Component {
   }
 
   render() {
-    switch (this.props.page) {
-      case "all":
-        return (
-          <PaintingList
-            handleVoteClick={this.handleVoteClick}
-            handleDeleteClick={this.handleDeleteClick}
-            paintings={this.state.paintings}
-          />
-        )
-      case "add":
-        return <PaintingForm handleSubmit={this.handleSubmit} />
-      default:
-       return null
-    }
+    console.log('painting container is rendering', this.props);
+    return (
+      <Switch>
+        <Route path="/paintings/new" render={() => {
+          return <PaintingForm handleSubmit={this.handleSubmit} />
+        }} />
+        <Route path="/paintings/:slug" render={(routerProps) => {
+          const slug = routerProps.match.params.slug
+          // const painting = this.state.paintings.find(p => p.slug === slug)
+
+          return <PaintingShow slug={slug} />
+        }} />
+        <Route path="/paintings" render={() => {
+          return (
+            <PaintingList
+              handleVoteClick={this.handleVoteClick}
+              handleDeleteClick={this.handleDeleteClick}
+              paintings={this.state.paintings}
+            />
+          )
+        }} />
+      </Switch>
+    )
+    // switch (this.props.page) {
+    //   case "all":
+    //     return (
+          // <PaintingList
+          //   handleVoteClick={this.handleVoteClick}
+          //   handleDeleteClick={this.handleDeleteClick}
+          //   paintings={this.state.paintings}
+          // />
+    //     )
+    //   case "add":
+        // return <PaintingForm handleSubmit={this.handleSubmit} />
+    //   default:
+    //    return null
+    // }
   }
 
 }

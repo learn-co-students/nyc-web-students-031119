@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { Link } from 'react-router-dom'
 
 // class PaintingCard extends React.Component {
 //   state = {confirmation: false}
@@ -71,8 +72,10 @@ class PaintingCard extends PureComponent {
         <div className="extra content">
           <div className="ui two buttons">
             <div className="ui basic blue button">
-              <i className="add circle icon" />
-              More Info
+              <Link to={`paintings/${this.props.painting.slug}`} >
+                <i className="add circle icon" />
+                More Info
+              </Link>
             </div>
             <div
               className="ui basic red button"

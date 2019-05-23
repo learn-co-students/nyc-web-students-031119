@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Switch, Route } from 'react-router-dom'
 
 import Navbar from './Navbar'
 import Login from './Login'
@@ -8,49 +9,10 @@ import About from './About'
 
 class App extends React.Component {
 
-
   state = {
-    page: "",
+    // page: "",
     mike: "cheng"
   }
-
-  componentDidMount() {
-    fetch("http://localhost:3001/api/v1/paintings")
-    .then(res => res.json())
-    .then(data => {
-      this.setState({paintings: data.sort((a, b) => b.votes - a.votes)})
-    })
-  }
-
-  handleVoteClick = (id) => {
-    console.log('the click happened', id)
-
-    this.setState((prevState) => {
-      return {
-          paintings: prevState.paintings.map(pntg => {
-          if(pntg.id === id) {
-            return {...pntg, votes: pntg.votes + 1}
-          } else {
-            return pntg
-          }
-        }).sort((a,b) => b.votes - a.votes)
-      }
-    })
-
-  }
-  // if (this.state.page === "all") {
-  //   <PaintingList />
-  // } else {
-  //   <PaintingForm />
-  // }
-
-  // handleAddClick = () => {
-  //   this.setState({page: "add"})
-  // }
-  //
-  // handleAllClick = () => {
-  //   this.setState({page: "all"})
-  // }
 
   handlePageClick = (page) => {
     this.setState({ page })
@@ -60,11 +22,11 @@ class App extends React.Component {
     switch(this.state.page) {
       case "about":
         return <About />
-      case "add":
-      case "all":
-        return <PaintingContainer page={this.state.page}/>
       case "login":
         return <Login />
+      case "add":
+      case "all":
+        return <PaintingContainer/>
       default:
         return <About />
     }
@@ -79,7 +41,12 @@ class App extends React.Component {
           handlePageClick={this.handlePageClick}
         />
         <div className="ui container">
-          {this.renderPage()}
+          <Switch>
+            <Route exact path="/" component={() => <h1>Hello</h1>} />
+            <Route path="/about" component={About} />
+            <Route path="/login" component={Login} />
+            <Route path="/paintings" component={PaintingContainer} />
+          </Switch>
         </div>
       </Fragment>
     )

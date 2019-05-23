@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class PaintingShow extends React.Component {
   state = {painting: null}
@@ -35,7 +36,9 @@ class PaintingShow extends React.Component {
             <div className="extra content">{painting.museum.name}</div>
           </div>
             <i className="left arrow icon" />
-            Back
+            <Link to="/paintings">
+              Back
+            </Link>
         </div>
       )
     } else {

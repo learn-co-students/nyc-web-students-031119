@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const colors = [
   'red',
@@ -40,13 +41,9 @@ class Navbar extends React.Component {
     // const { title, color, icon } = this.props
     return (
       <div className={`ui inverted ${this.state.color} menu`}>
-        <a
+        <Link
           className='item'
-          href="/"
-          onClick={(e) => {
-            e.preventDefault()
-            this.props.handlePageClick("about")
-          }}
+          to="/about"
         >
           <h2 className="ui header">
             <i className={`${this.props.icon} icon`}></i>
@@ -54,15 +51,21 @@ class Navbar extends React.Component {
               {this.props.title}
             </div>
           </h2>
-        </a>
-        <div className="item" onClick={() => this.props.handlePageClick("login")}>
-          Login
+        </Link>
+        <div className="item">
+          <Link to="/login">
+            Login
+          </Link>
         </div>
-        <div className="item" onClick={() => this.props.handlePageClick("all")}>
-          All Paintings
+        <div className="item">
+          <Link to="/paintings">
+            All Paintings
+          </Link>
         </div>
-        <div className="item" onClick={() => this.props.handlePageClick("add")}>
-          Add a Painting
+        <div className="item">
+          <Link to="/paintings/new">
+            Add a Painting
+          </Link>
         </div>
         <div className="right floated item">
           <button
