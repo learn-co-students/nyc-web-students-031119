@@ -1,5 +1,6 @@
 import React, { Component, PureComponent } from 'react'
 import Button from './Button'
+import withRandomColor from './hocs/withRandomColor'
 
 // class PaintingCard extends React.Component {
 //   state = {confirmation: false}
@@ -89,4 +90,4 @@ class PaintingCard extends Component {
    }
   }
 
-export default PaintingCard
+export default withRandomColor(PaintingCard)

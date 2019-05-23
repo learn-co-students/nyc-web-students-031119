@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Navbar from './Navbar'
 import PaintingList from './PaintingList'
 import PaintingForm from './PaintingForm'
+import withRandomColor from './hocs/withRandomColor'
 // import paintings from './artworks'
 
 // const App = (props) => {
@@ -130,4 +131,5 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRandomColor(App);
+// export default App;

@@ -1,5 +1,6 @@
 import React from 'react'
 import DeleteablePainting from './DeleteablePainting'
+import withRandomColor from './hocs/withRandomColor'
 
 
 class PaintingList extends React.Component {
@@ -30,4 +31,4 @@ class PaintingList extends React.Component {
 
 }
 
-export default PaintingList
+export default withRandomColor(PaintingList)
