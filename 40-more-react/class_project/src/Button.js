@@ -1,5 +1,5 @@
 import React from 'react'
-
+import withRandomColor from './hocs/withRandomColor'
 
 
 const Button = (props) => {
