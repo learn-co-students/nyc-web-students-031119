@@ -1,15 +1,17 @@
 import React from 'react';
 
+const initialState = {
+  error: false,
+  fields: {
+    username: '',
+    password: ''
+  }
+}
+
 class Login extends React.Component {
   constructor() {
     super();
-    this.state = {
-      error: false,
-      fields: {
-        username: '',
-        password: ''
-      }
-    };
+    this.state = initialState
   }
 
   handleChange = e => {
@@ -18,15 +20,22 @@ class Login extends React.Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault()
+    console.log(this.state.fields);
+    this.setState(initialState)
   };
 
   render() {
-    const { fields } = this.state;
+    const { fields } = this.state
     return (
       <div>
-        {this.state.error ? <h1>Try Again</h1> : null}
-        <div className="ui form">
+        <div className="ui form error">
+          {
+            this.state.error &&
+            <div className="ui error message">
+              Try Again
+            </div>
+          }
           <form onSubmit={this.handleSubmit}>
             <div className="ui field">
               <label>Username</label>

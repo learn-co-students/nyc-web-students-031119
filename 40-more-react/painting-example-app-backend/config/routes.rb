@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :paintings, param: :slug
       post '/auth', to: 'auth#create'
-      get '/current_user', to: 'auth#show'
     end
   end
 
