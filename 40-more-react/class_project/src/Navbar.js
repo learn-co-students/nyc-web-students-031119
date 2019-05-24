@@ -52,10 +52,23 @@ class Navbar extends React.Component {
             </div>
           </h2>
         </Link>
+        {
+          this.props.currentUser &&
+          <div className="item">
+            {`Welcome ${this.props.currentUser.username}`}
+          </div>
+        }
         <div className="item">
-          <Link to="/login">
+          {
+            this.props.currentUser ?
+            <div onClick={this.props.handleLogout}>
+              Logout
+            </div>
+            :
+            <Link to="/login">
             Login
-          </Link>
+            </Link>
+          }
         </div>
         <div className="item">
           <Link to="/paintings">

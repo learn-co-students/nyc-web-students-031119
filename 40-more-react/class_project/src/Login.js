@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
 
 const initialState = {
   error: false,
@@ -21,11 +22,31 @@ class Login extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    console.log(this.state.fields);
-    this.setState(initialState)
+    // console.log(this.state.fields);
+    fetch('http://localhost:3001/api/v1/auth', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(this.state.fields)
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data.error) {
+        this.setState({error: true})
+      } else {
+        this.props.handleUserLogin(data)
+        this.props.history.push("/about")
+        // console.log('data from api', data)
+      }
+    })
+
+    // this.setState(initialState)
   };
 
   render() {
+    console.log('Login props', this.props);
     const { fields } = this.state
     return (
       <div>
@@ -66,4 +87,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

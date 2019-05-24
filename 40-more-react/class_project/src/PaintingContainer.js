@@ -11,11 +11,20 @@ class PaintingContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/v1/paintings")
-    .then(res => res.json())
-    .then(data => {
-      this.setState({paintings: data.sort((a, b) => b.votes - a.votes)})
-    })
+    const token = localStorage.getItem("token")
+
+    if (!token) {
+      // this check is insufficent
+      // we also need to see if the user with that token exists
+      this.props.history.push("login")
+    } else {
+      fetch("http://localhost:3001/api/v1/paintings")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({paintings: data.sort((a, b) => b.votes - a.votes)})
+      })
+    }
+
   }
 
   handleVoteClick = (id) => {
