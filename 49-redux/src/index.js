@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import logo from './logo.svg';
-import './App.css';
+import App from './App'
 
 import { createStore } from 'redux'
+// we use 1 time in the application, 1 time only
+// at the top of our application
+import { Provider } from 'react-redux'
 
 // store is just an object with some methods
 // getState - this is a reader method, returns whatever the state is that the redux store knows about
@@ -25,14 +26,8 @@ import { createStore } from 'redux'
 
 const initialState = {
   isRaining: false,
-  mike: "Cheng",
-  counters: [
-    {count: 0},
-    {count: 0},
-    {count: 0},
-    {count: 0},
-    {count: 0}
-  ]
+  cheng: "mike",
+  count: 100
 }
 
 const reducer = (state = initialState, action) => {
@@ -78,71 +73,74 @@ store.subscribe(() => {
 //   {name: Header, chidlren: [], state},
 //   {name: Counter, chidlren: [], state},
 // ]}
+//
+// class App extends Component {
+//   render() {
+//     return (
+//       <div className="App">
+//         <Header />
+//         {
+//           store.getState().counters.map(counter => <Counter />)
+//         }
+//       </div>
+//     );
+//   }
+// }
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        {
-          store.getState().counters.map(counter => <Counter />)
-        }
-      </div>
-    );
-  }
-}
+// class Header extends Component {
+//   componentDidMount() {
+//     store.subscribe(() => this.setState({}))
+//   }
+//
+//   renderDescription = () => {
+//     const remainder = store.getState().count % 5;
+//     const upToNext = 5 - remainder;
+//     return `The current count is less than ${store.getState().count + upToNext}`;
+//   };
+//
+//   render() {
+//     return (
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <h1 className="App-title">Welcome to React</h1>
+//         <h3>{this.renderDescription()}</h3>
+//       </header>
+//     );
+//   }
+// }
 
-class Header extends Component {
-  componentDidMount() {
-    store.subscribe(() => this.setState({}))
-  }
+// class Counter extends Component {
+//
+//   componentDidMount() {
+//     store.subscribe(() => this.setState({}))
+//   }
+//
+//   increment = (amount) => {
+//     store.dispatch({type: "INCREMENT", amount: amount})
+//     // this.setState(prevState => ({ count: prevState.count + 1 }));
+//   };
+//
+//   decrement = () => {
+//     store.dispatch({type: "DECREMENT"})
+//     // this.setState(prevState => ({ count: prevState.count - 1 }));
+//   };
+//
+//
+//
+//   render() {
+//     return (
+//       <div className="Counter">
+//         <h1>0</h1>
+//         <button onClick={this.decrement}> - </button>
+//         <button onClick={() => this.increment(1)}> + </button>
+//         <button onClick={() => this.increment(5)}> + 5 </button>
+//         <button onClick={() => this.increment(10)}> + 10 </button>
+//       </div>
+//     );
+//   }
+// }
 
-  renderDescription = () => {
-    const remainder = store.getState().count % 5;
-    const upToNext = 5 - remainder;
-    return `The current count is less than ${store.getState().count + upToNext}`;
-  };
-
-  render() {
-    return (
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
-        <h3>{this.renderDescription()}</h3>
-      </header>
-    );
-  }
-}
-
-class Counter extends Component {
-
-  componentDidMount() {
-    store.subscribe(() => this.setState({}))
-  }
-
-  increment = (amount) => {
-    store.dispatch({type: "INCREMENT", amount: amount})
-    // this.setState(prevState => ({ count: prevState.count + 1 }));
-  };
-
-  decrement = () => {
-    store.dispatch({type: "DECREMENT"})
-    // this.setState(prevState => ({ count: prevState.count - 1 }));
-  };
-
-
-
-  render() {
-    return (
-      <div className="Counter">
-        <h1>0</h1>
-        <button onClick={this.decrement}> - </button>
-        <button onClick={() => this.increment(1)}> + </button>
-        <button onClick={() => this.increment(5)}> + 5 </button>
-        <button onClick={() => this.increment(10)}> + 10 </button>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, document.getElementById('root'));
