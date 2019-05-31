@@ -11,10 +11,28 @@ import { createStore } from 'redux'
 
 // dispatch
 
+// GET /pizzas
+// POST /pizzas params
+// {type: "LOGOUT"}
+// {type: "SIGN_IN", user: {}, userId: 10}
+
+// const initialState = {
+//   isRaining: false,
+//   mike: "Cheng",
+//   count: 1765
+// }
+
+
 const initialState = {
   isRaining: false,
   mike: "Cheng",
-  count: 1765
+  counters: [
+    {count: 0},
+    {count: 0},
+    {count: 0},
+    {count: 0},
+    {count: 0}
+  ]
 }
 
 const reducer = (state = initialState, action) => {
@@ -31,14 +49,12 @@ const reducer = (state = initialState, action) => {
 
   switch(action.type) {
     case "INCREMENT":
-      return {...state, count: state.count + 1}
+      return {...state, count: state.count + action.amount}
     case "DECREMENT":
       return {...state, count: state.count - 1}
     default:
       return state
   }
-
-  return state
 }
 
 
@@ -68,7 +84,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Counter />
+        {
+          store.getState().counters.map(counter => <Counter />)
+        }
       </div>
     );
   }
@@ -102,8 +120,8 @@ class Counter extends Component {
     store.subscribe(() => this.setState({}))
   }
 
-  increment = () => {
-    store.dispatch({type: "INCREMENT"})
+  increment = (amount) => {
+    store.dispatch({type: "INCREMENT", amount: amount})
     // this.setState(prevState => ({ count: prevState.count + 1 }));
   };
 
@@ -117,11 +135,11 @@ class Counter extends Component {
   render() {
     return (
       <div className="Counter">
-        <h1>{store.getState().count}</h1>
+        <h1>0</h1>
         <button onClick={this.decrement}> - </button>
-        <button onClick={this.increment}> + </button>
-        <button onClick={this.increment}> + 5 </button>
-        <button onClick={this.increment}> + 10 </button>
+        <button onClick={() => this.increment(1)}> + </button>
+        <button onClick={() => this.increment(5)}> + 5 </button>
+        <button onClick={() => this.increment(10)}> + 10 </button>
       </div>
     );
   }
