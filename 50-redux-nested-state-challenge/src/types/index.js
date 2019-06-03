@@ -1,0 +1,2 @@
+export const ADD_NOTE = 'ADD_NOTE'
+export const CHANGE_ACTIVE_SUBJECT = 'CHANGE_ACTIVE_SUBJECT'
