@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  # before_action :authorized
+  before_action :authorized
 
   def encode_token(user_id)
     JWT.encode({user_id: user_id}, ENV['SECRET_KEY'])
@@ -26,8 +26,12 @@ class ApplicationController < ActionController::API
 
   def authorized
     # this is useful to protect any given route
-    # byebug
-    render json: {errors: 'Unauthorized'} unless :logged_in
+    
+    # oooooops on that colon
+    # render json: {errors: 'unauthorized'} unless :logged_in
+    # incorrect version 
+    
+    render json: {errors: 'unauthorized'} unless logged_in
   end
 
   def curr_user

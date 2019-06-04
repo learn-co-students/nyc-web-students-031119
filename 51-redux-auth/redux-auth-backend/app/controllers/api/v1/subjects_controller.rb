@@ -2,7 +2,6 @@ class Api::V1::SubjectsController < ApplicationController
   # before_action :authorized
 
   def index
-    authorized
     subjects = Subject.all
 
     render json: subjects
